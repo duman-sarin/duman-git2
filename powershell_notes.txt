@@ -1,0 +1,27 @@
+
+powershell -Command { Write-Host "Yellow text" -ForegroundColor Yellow }
+powershell -Command { Write-Host "Yellow text" -ForegroundColor Blue }
+powershell -Command { Write-Host "Yellow text" -ForegroundColor Blue } -NoExit
+
+get-process "powershell"
+--------------------------------------------------------------------------------
+get-executionpolicy -list
+
+        Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser      	Undefined
+ LocalMachine       Undefined
+--------------------------------------------------------------------------------
+set-executionpolicy -executionpolicy Restricted -Scope CurrentUser
+ 
+         Scope ExecutionPolicy
+        ----- ---------------
+MachinePolicy       Undefined
+   UserPolicy       Undefined
+      Process       Undefined
+  CurrentUser      Restricted
+ LocalMachine       Undefined
+--------------------------------------------------------------------------------
