@@ -1,0 +1,6 @@
+Create virtual environment by entering: python3 -m venv testenv
+Enter the virtual environment by entering: "C:\Users\duman\testenv\Scripts\Activate.ps1"
+Install emoji python module by executing: pip install emoji
+Enter python shell, by executing: python3
+Execute command: import emoji
+Execute command: print(emoji.emojize("Hello, world! :thumbs_up:"))
