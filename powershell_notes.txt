@@ -25,3 +25,51 @@ MachinePolicy       Undefined
   CurrentUser      Restricted
  LocalMachine       Undefined
 --------------------------------------------------------------------------------
+
+#Get contents of Home directory and assign to variable
+	$q1=get-childitem -path C:\Users\duman
+
+#Get type of $q1 variable
+	$q1.gettype()
+
+#Get 5th element/value of $q1 array
+	$q1[5]
+
+#Get type of 5th element/value
+	$q1[6].gettype()
+===============================================================
+
+$array1=@($CountryCodes = @{ "BY" = "Belarus"; "US" = "America"; "DE" = "Germany"}, $Person = @{ "Age"=23; "Natioanlity" = "Kazakh" ; "BornDate" = "1980"}, $Tab1 = @{ "v1" = "Value1"; "v2" = "value2"})
+
+
+#Create strong defined string array.
+	[string[]]$array1=@()
+	
+#Create 3 Hash Tables.
+$CountryCodes = @{ "BY" = "Belarus"; "US" = "America"; "DE" = "Germany"}
+$Person = @{ "Age"=23; "Natioanlity" = "Kazakh" ; "BornDate" = "1980"}
+$Tab1 = @{ "v1" = "Value1"; "v2" = "value2"}
+
+#Put three different hash-tables in array.
+	[hashtable[]]$array1=@($CountryCodes, $Person, $Tab1)
+
+#Retrieve value from the second key in third hash table in array.
+	$($array1[2].GetEnumerator())[0].value
+
+	[hashtable[]]$ht1 = @{ T1 = $CountryCodes; T2 = $Person; T3 = $Tab1 }
+
+
+#Fix Key name of $Person from "Natioanlity" to "Nationality"
+
+	$Person.Nationality=$Person.Natioanlity
+	$Person.Remove("Natioanlity")
+
+#Transform hash-table into ordered hash-table sorted by value.
+
+==================================================================================================================
+
+#######Get available properties and methods for class object
+	> notepad
+	> $NotepadProc = get-process -name "notepad"
+	> get-member -inputobject $NotepadProc
+
